@@ -1,0 +1,89 @@
+@import "~src/styles/colors";
+
+.root {
+  display: flex;
+  padding: 1rem;
+  border-bottom: thin solid map_get($colors, 'light');
+
+
+  .type {
+    flex-shrink: 0;
+    padding-left: 3rem;
+    padding-right: 0.5rem;
+    font-size: 1.6rem;
+    font-family: iconfont, sans-serif !important;
+
+
+    &.follow-u:after {
+      content: '\e636';
+      color: map_get($colors, 'blue');
+    }
+
+    &.follow:after {
+      content: '\e820';
+      color: map_get($colors, 'blue');
+    }
+
+    &.ret:after {
+      content: '\e870';
+      color: map_get($colors, 'green-light');
+    }
+
+    &.like:after {
+      content: '\e621';
+      color: map_get($colors, 'red');
+    }
+  }
+
+  .container {
+    flex-grow: 1;
+
+    .users {
+      display: flex;
+
+      .fm-img-circle {
+        width: 2.4rem;
+        height: 2.4rem;
+        margin-right: 0.2rem;
+        cursor: pointer;
+      }
+
+    }
+
+    strong {
+      cursor: pointer;
+      display: inline-block;
+
+      &:hover {
+        color: map_get($colors, 'blue');
+      }
+    }
+
+    .content {
+      padding: 0.5rem 0;
+      display: inline-block;
+      font-size: 1.2rem;
+
+      .time-gone {
+        color: map_get($colors, 'gray');
+        padding: 0 0.2rem;
+        cursor: pointer;
+        margin-left: 1rem;
+        position: relative;
+
+        &:before {
+          content: '·';
+          position: absolute;
+          left: -0.5rem;
+          top: 0;
+          bottom: 0;
+          color: map_get($colors, 'gray');
+        }
+      }
+    }
+  }
+
+  .opts {
+    flex-shrink: 0;
+  }
+}

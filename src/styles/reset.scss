@@ -1,0 +1,130 @@
+/** 初始化页面样式，采用rem */
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 72%;
+  }
+}
+
+
+@media screen and (max-width: 414px) {
+  html {
+    font-size: 68%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-size: 1.4rem;
+  font-family: "WenQuanYi Micro Hei Mono", monospace, sans-serif, serif;
+}
+
+input:not([type='submit'])::placeholder, input:not([type='button'])::placeholder, select::placeholder, textarea::placeholder {
+  color: #9E9E9E;
+}
+
+input:not([class*='fm-no-border']):active:not([type='submit']):active:not([type='button']):active, select:focus, textarea:active,
+input:not([class*='fm-no-border']):focus:not([type='submit']):focus:not([type='button']):focus, select:focus, textarea:focus {
+  outline: thin solid #1da1f2;
+}
+
+input:not([type='submit']):not([type='button']):focus::placeholder, select:focus::placeholder, textarea:focus::placeholder {
+  color: #BDBDBD;
+}
+
+input[type='button'], input[type='submit'] {
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  &:active, &:hover, &:focus {
+    outline: none;
+  }
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: #14171a;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover:not(.no-underline) {
+  text-decoration: underline;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+fieldset,
+img {
+  border: 0;
+}

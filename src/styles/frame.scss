@@ -1,0 +1,507 @@
+@import "colors";
+/** 命名方法 */
+@function named($key, $prefix:'', $stuff:'') {
+  @return $prefix+"["+$key+"]"+$stuff+", "+$prefix+"."+$key+$stuff;
+}
+
+#{named(fm-flex-row)} {
+  display: flex;
+  flex-direction: row;
+}
+
+#{named(fm-flex-column)} {
+  display: flex;
+  flex-direction: column;
+}
+
+#{named(fm-flex-wrap)} {
+  flex-wrap: wrap !important;
+}
+
+#{named(fm-flex-grow)} {
+  flex-grow: 1;
+}
+
+#{named(fm-flex-shrink)} {
+  flex-shrink: 0;
+}
+
+#{named(fm-justify-content-center)} {
+  justify-content: center;
+}
+
+#{named(fm-justify-content-start)} {
+  justify-content: start;
+}
+
+#{named(fm-justify-content-end)} {
+  justify-content: flex-end;
+}
+
+#{named(fm-justify-content-space-between)} {
+  justify-content: space-between;
+}
+
+#{named(fm-justify-content-space-around)} {
+  justify-content: space-around;
+}
+
+#{named(fm-justify-items-center)} {
+  justify-items: center;
+}
+
+#{named(fm-align-items-center)} {
+  align-items: center;
+}
+
+#{named(fm-align-items-stretch)} {
+  align-items: stretch;
+}
+
+#{named(fm-align-self-center)} {
+  align-self: center;
+}
+
+#{named(fm-align-self-stretch)} {
+  align-self: stretch;
+}
+
+$borderType: (border-a:border, border-l:border-left, border-r:border-right, border-t:border-top, border-b:border-bottom);
+
+/*loop:colors*/
+@each $colorK,
+$colorV in $colors {
+  #{named(fm-color-#{$colorK})
+} {
+    color: $colorV !important;
+  }
+
+
+  #{named(fm-cursor-pointer-text-#{$colorK})
+} {
+    color: $colorV !important;
+    cursor: pointer !important;
+
+    &:active {
+      opacity: 0.5 !important;
+    }
+  }
+
+  #{named(fm-bg-color-#{$colorK})
+} {
+    background-color: $colorV !important;
+  }
+
+  @each $borderK,
+  $borderV in $borderType {
+    #{named(fm-#{$borderK}-#{$colorK})
+} {
+      #{$borderV}-color: $colorV !important;
+      #{$borderV}-style: solid;
+      #{$borderV}-width: thin;
+    }
+
+    #{named(fm-#{$borderK}-dashed-#{$colorK})
+} {
+      #{$borderV}-color: $colorV !important;
+      #{$borderV}-style: dashed;
+      #{$borderV}-width: thin;
+    }
+  }
+
+  #{named(fm-border-v-#{$colorK})
+} {
+    border-top-color: $colorV !important;
+    border-top-style: solid;
+    border-top-width: thin;
+    border-bottom-color: $colorV !important;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+  }
+
+  #{named(fm-border-h-#{$colorK})
+} {
+    border-left-color: $colorV !important;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-right-color: $colorV !important;
+    border-right-style: solid;
+    border-right-width: thin;
+  }
+
+  #{named(fm-border-v-dashed-#{$colorK})
+} {
+    border-top-color: $colorV !important;
+    border-top-style: dashed;
+    border-top-width: thin;
+    border-bottom-color: $colorV !important;
+    border-bottom-style: dashed;
+    border-bottom-width: thin;
+  }
+
+  #{named(fm-border-h-dashed-#{$colorK})
+} {
+    border-left-color: $colorV !important;
+    border-left-style: dashed;
+    border-left-width: thin;
+    border-right-color: $colorV !important;
+    border-right-style: dashed;
+    border-right-width: thin;
+  }
+}
+
+/* font size Maps */
+$fontSize: (60:6.0rem,
+  40:4.0rem,
+  36:3.6rem,
+  32:3.2rem,
+  28:2.8rem,
+  24:2.4rem,
+  20:2.0rem,
+  18:1.8rem,
+  16:1.6rem,
+  14:1.4rem,
+  12:1.2rem,
+  10:1.0rem,
+  header:18rem,
+  title:1.6rem,
+  text:1.4rem,
+  sub:1.2rem,
+  min:1.0rem);
+
+/*loop:font-size , line-height*/
+@each $fontK,
+$fontV in $fontSize {
+  #{named(fm-font-size-#{$fontK})
+} {
+    font-size: $fontV
+  }
+}
+
+#{named(fm-font-bold)} {
+  font-weight: bold;
+}
+
+#{named(fm-font-bolder)} {
+  font-weight: bolder;
+}
+
+/* space Size Maps */
+$spaceSize: (200:20.0rem,
+  150:15.0rem,
+  120:12.0rem,
+  100:10.0rem,
+  80:8.0rem,
+  50:5.0rem,
+  30:3.0rem,
+  20:2.0rem,
+  15:1.5rem,
+  10:1.0rem,
+  5:0.5rem,
+  2:0.2rem);
+
+$spaceType: (p-a:padding,
+  p-l:padding-left,
+  p-r:padding-right,
+  p-t:padding-top,
+  p-b:padding-bottom,
+  m-a:margin,
+  m-l:margin-left,
+  m-r:margin-right,
+  m-t:margin-top,
+  m-b:margin-bottom);
+
+/*loop:spaceSize*/
+@each $sizeK,
+$sizeV in $spaceSize {
+
+  @each $typeK,
+  $typeV in $spaceType {
+    #{named(fm-#{$typeK}-#{$sizeK})
+    } {
+      #{$typeV}: $sizeV;
+    }
+  }
+
+  #{named(fm-p-h-#{$sizeK})
+} {
+    padding-left: $sizeV;
+    padding-right: $sizeV;
+  }
+
+  #{named(fm-p-v-#{$sizeK})
+} {
+    padding-top: $sizeV;
+    padding-bottom: $sizeV;
+  }
+
+  #{named(fm-m-h-#{$sizeK})
+} {
+    margin-left: $sizeV;
+    margin-right: $sizeV;
+  }
+
+  #{named(fm-m-v-#{$sizeK})
+} {
+    margin-top: $sizeV;
+    margin-bottom: $sizeV;
+  }
+}
+
+#{named(fm-m-auto)} {
+  margin: auto;
+}
+
+/* layout Maps */
+$layoutType: (w:width,
+  w-max:max-width,
+  w-min:min-width,
+  h:height,
+  h-max:max-height,
+  h-min:min-height,
+  line-h:line-height);
+
+/*loop:layout size*/
+@for $n from 1 through 10 {
+
+  /* w-5 ==> width:0.5rem; ...w-50 ,step 5 */
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-#{$n*5})
+    } {
+      #{$layoutV}: $n*0.5rem;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-#{$n*5}-important)
+} {
+      #{$layoutV}: $n*0.5rem !important;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-#{$n*10 + 50})
+} {
+      #{$layoutV}: $n*1.0rem+ 5.0rem;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-#{$n*10 + 50}-important)
+} {
+      #{$layoutV}: $n*1.0rem+ 5.0rem !important;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-#{$n*10 + 150})
+} {
+      #{$layoutV}: $n*1.0rem+ 15.0rem;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-#{$n*10 + 150}-important)
+} {
+      #{$layoutV}: $n*1.0rem+ 15.0rem !important;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-#{($n*50)+250})
+} {
+      #{$layoutV}: ($n*5.0rem) + 25.0rem;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-#{($n*100)+700})
+} {
+      #{$layoutV}: ($n*10.0rem) + 70.0rem;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-per-#{$n*5})
+} {
+      #{$layoutV}: $n* 5%;
+    }
+  }
+
+  @each $layoutK,
+  $layoutV in $layoutType {
+    #{named(fm-#{$layoutK}-per-#{$n*5 + 50})
+} {
+      #{$layoutV}: $n* 5%+ 50%;
+    }
+  }
+
+  @each $typeK,
+  $typeV in $spaceType {
+    #{named(fm-#{$typeK}-per-#{$n*10})
+} {
+      #{$typeV}: $n* 10%;
+    }
+  }
+
+  #{named(fm-p-h-per-#{$n*10})
+} {
+    padding-left: $n* 10%;
+    padding-right: $n* 10%;
+  }
+
+  #{named(fm-p-v-per-#{$n*10})
+} {
+    padding-top: $n* 10%;
+    padding-bottom: $n* 10%;
+  }
+
+  #{named(fm-m-h-per-#{$n*10})
+} {
+    margin-left: $n* 10%;
+    margin-right: $n* 10%;
+  }
+
+  #{named(fm-m-v-per-#{$n*10})
+} {
+    margin-top: $n* 10%;
+    margin-bottom: $n* 10%;
+  }
+
+  #{named(fm-flex-basis-per-#{$n*10})
+} {
+    flex-basis: $n*10%;
+  }
+
+  #{named(fm-flex-basis-#{$n*20})
+} {
+    flex-basis: $n*2.0rem;
+  }
+}
+
+#{named(fm-w-auto)} {
+  width: auto !important;
+}
+
+#{named(fm-h-auto)} {
+  height: auto !important;
+}
+
+/* 末尾溢出省略号, 1 到10行*/
+@for $n from 1 through 10 {
+  #{named(fm-line-#{$n})
+} {
+
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $n;
+    -webkit-box-orient: vertical;
+  }
+}
+
+#{named(fm-text-center)} {
+  text-align: center;
+}
+
+#{named(fm-text-left)} {
+  text-align: left;
+}
+
+#{named(fm-text-right)} {
+  text-align: right;
+}
+
+#{named(fm-visibility-hidden)} {
+  visibility: hidden;
+}
+
+#{named(fm-hidden)} {
+  display: none;
+}
+
+#{named(fm-no-overflow)} {
+  overflow: hidden;
+}
+
+#{named(fm-no-border)} {
+  border: none;
+}
+
+#{named(fm-word-break)} {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: initial;
+}
+
+#{named(fm-img-cover-wrap)} {
+  overflow: hidden;
+
+  #{named(fm-img-cover)} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+#{named(fm-overflow)} {
+  overflow: auto;
+}
+
+#{named(fm-overflow-scroll)} {
+  overflow: scroll;
+}
+
+#{named(fm-overflow-inherit)} {
+  overflow: inherit;
+}
+
+#{named(fm-overflow-y)} {
+  overflow-y: auto;
+}
+
+#{named(fm-overflow-y-scroll)} {
+  overflow-y: scroll;
+}
+
+#{named(fm-overflow-y-inherit)} {
+  overflow-y: inherit;
+}
+
+#{named(fm-overflow-y-none)} {
+  overflow-y: hidden;
+}
+
+#{named(fm-position-relative)} {
+  position: relative;
+}
+
+#{named(fm-position-absolute)} {
+  position: absolute;
+}
+
+#{named(fm-cursor-pointer)} {
+  cursor: pointer;
+}
+
+#{named(fm-no-select)} {
+  user-select: none;
+}
+
+#{named(fm-tappable)} {
+  cursor: pointer;
+  user-select: none;
+
+  &:active {
+    opacity: 0.5;
+  }
+}

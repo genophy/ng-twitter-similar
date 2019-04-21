@@ -1,0 +1,87 @@
+@import "~src/styles/colors";
+
+.root {
+  min-width: 50rem;
+  min-height: 100%;
+  background: map_get($colors, 'light');
+  overflow-y: scroll;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: map_get($colors, 'white');
+  border-bottom: thin solid map_get($colors, 'gray-light');
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+
+  &-container {
+    width: 68rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.body {
+  margin-top: 5rem;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+
+}
+
+ul {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  font-size: 1.2rem;
+
+  li {
+
+    line-height: 4rem;
+    height: 4rem;
+    padding: 0 1rem
+  }
+
+}
+
+.btn-search-from-twitter {
+  position: relative;
+
+  input {
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    background: map_get($colors, 'light');
+    padding: 0.5rem 2rem 0.5rem 3.2rem;
+    outline: none;
+
+  }
+
+  &:before {
+    content: '\e618';
+    font-size: 1.6rem;
+    font-family: iconfont, serif;
+    color: map_get($colors, 'gray');
+    width: 2rem;
+    position: absolute;
+    left: 1rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+
+.label {
+  font-size: 1.0rem;
+  color: map_get($colors, 'gray-light')
+}
+
+.current-location {
+  font-size: 1.2rem;
+}
+

@@ -1,0 +1,72 @@
+<div class="root">
+
+  <div class="header">
+    <div class="header-container ">
+      <ul>
+        <li>
+          <a href="javascript:void(0)" class="selected"
+             [ngClass]="{'selected': currentPathTypeForEnum === routeTypesForEnum.main}" (click)="btnGotoRoute('/main')">
+            <span class="iconfont icon-shouye fm-font-size-16 "></span>
+            <span class="name" clickAble>主页</span>
+          </a>
+
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <span class="iconfont icon-Flash fm-font-size-16  "></span>
+            <span class="name">瞬间</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);"
+             [ngClass]="{'selected': currentPathTypeForEnum === routeTypesForEnum.notification}"
+             (click)="btnGotoRoute('/main/notifications')">
+            <span class="iconfont icon-notices fm-font-size-16  "></span>
+            <span class="name" clickAble>通知</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <span class="iconfont icon-mail fm-font-size-16"></span>
+            <span class="name">私信</span>
+          </a>
+        </li>
+      </ul>
+      <div class="fm-flex-row fm-align-items-center">
+        <a href="javascript:void(0);" class="no-underline" (click)="btnGotoRoute('/')">
+          <span class="iconfont icon-twitter fm-font-size-18 fm-color-blue " clickAble></span>
+        </a>
+      </div>
+
+      <div class="fm-flex-row fm-justify-content-end">
+        <ul>
+          <li>
+            <div class="btn-search-from-twitter">
+              <input type="text" placeholder="搜索 Twitter" class="fm-no-border">
+              <span class="iconfont icon-find btn-search-icon"></span>
+            </div>
+          </li>
+          <li class="fm-flex-row fm-justify-content-center fm-align-items-center">
+            <div class="img-circle-min fm-m-l-10">
+              <img src="/assets/imgs/user01.png" alt="" aria-hidden="true">
+            </div>
+          </li>
+          <li>
+            <input type="button" class="fm-btn normal big fm-m-l-10" value="发推">
+          </li>
+        </ul>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="body">
+    <div class="body-container">
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+</div>

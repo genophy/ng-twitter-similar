@@ -1,0 +1,52 @@
+@import "~src/styles/colors";
+
+.root {
+  background: map_get($colors, 'white');
+
+  .label {
+    padding: 1rem;
+
+    .name {
+      font-size: 1.6rem;
+      font-weight: bolder;
+    }
+
+    .modify {
+      font-size: 1.0rem;
+      color: map_get($colors, 'blue');
+
+      &:before {
+        content: "·";
+        padding: 0.4rem;
+      }
+    }
+  }
+
+
+}
+
+
+.trend-list-item {
+  display: flex;
+  padding: 1rem 1rem 1rem 1.6rem;
+  cursor: pointer;
+  border-bottom: thin solid map_get($colors, 'gray-light');
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+
+.img-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

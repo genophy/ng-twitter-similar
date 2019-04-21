@@ -1,0 +1,39 @@
+@import "~src/styles/colors";
+
+.root {
+  width: 105rem;
+  display: flex;
+  flex-flow: row nowrap;
+
+  .root-left {
+    flex-shrink: 0;
+    width: 25rem;
+    padding-right: 1rem;
+  }
+
+  .root-center {
+    flex-grow: 1;
+  }
+
+  .root-right {
+    flex-shrink: 0;
+    width: 25rem;
+    padding-left: 1rem;
+  }
+
+}
+
+.btn-show-more-twitter {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: map_get($colors, 'blue');
+  background-color: map_get($colors, 'white-light');
+  cursor: pointer;
+  border: thin solid map_get($colors, 'gray-light');
+
+  &:hover {
+
+    background-color: map_get($colors, 'light');
+  }
+}

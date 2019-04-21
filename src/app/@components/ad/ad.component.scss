@@ -1,0 +1,21 @@
+@import "~src/styles/colors";
+
+.root {
+  background-color: map_get($colors, 'white');
+}
+
+.links {
+  padding: 1rem;
+  font-size: 1rem;
+
+  span, a {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    color: map_get($colors, 'gray');
+
+  }
+
+  a:hover {
+    color: map_get($colors, 'blue');
+  }
+}

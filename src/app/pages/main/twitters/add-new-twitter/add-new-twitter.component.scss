@@ -1,0 +1,42 @@
+@import "~src/styles/colors";
+
+.container {
+  display: flex;
+  padding: 1rem 1rem 1rem 2rem;
+  background-color: map_get($colors, 'blue-light');
+}
+
+.img-circle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.input-container {
+  padding-left: 1rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+
+  input {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    outline: none !important;
+
+    &::placeholder {
+      color: map_get($colors, 'blue-light');
+    }
+
+    &:focus::placeholder {
+      color: map_get($colors, 'gray-light');
+    }
+  }
+}

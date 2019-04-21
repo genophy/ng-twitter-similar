@@ -1,0 +1,55 @@
+@import "../../../styles/colors";
+
+.root {
+  padding: 1rem;
+  background: map_get($colors, 'white');
+
+  .label {
+    padding: 0.5rem 0;
+
+    .name {
+      font-size: 1.6rem;
+      font-weight: bolder;
+    }
+
+    .modify {
+      font-size: 1.0rem;
+      color: map_get($colors, 'blue');
+
+      &:before {
+        content: "·";
+        padding: 0.4rem;
+      }
+    }
+  }
+
+
+}
+
+
+.trend-list-item {
+  padding: 0.5rem 0;
+  color: map_get($colors, 'blue');
+  cursor: pointer;
+
+  .name {
+    font-size: 1.2rem;
+    font-weight: bolder;
+  }
+
+  &:hover {
+    .name {
+      text-decoration: underline;
+    }
+
+  }
+
+  &:after {
+    display: block;
+    content: attr(attr-count);
+
+    font-size: 1.0rem;
+    color: map_get($colors, 'gray');
+  }
+
+}

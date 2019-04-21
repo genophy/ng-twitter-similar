@@ -1,0 +1,16 @@
+@import "~src/styles/colors";
+
+.root {
+  background-color: map_get($colors, 'white');
+  text-align: center;
+  padding: 1rem;
+
+  .title {
+    font-weight: bolder;
+  }
+
+  .desc {
+    font-size: 1.2rem;
+    color: map_get($colors, 'gray')
+  }
+}

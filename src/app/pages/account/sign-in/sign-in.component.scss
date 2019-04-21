@@ -1,0 +1,94 @@
+@import "~src/styles/colors";
+
+.root {
+  min-height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.footer-keys {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 1rem 0;
+  border-top: 0.1rem solid map_get($colors, 'light');
+
+  > .footer-key, a {
+    font-size: 1.0rem;
+    flex-shrink: 0;
+    padding: 0.5rem;
+    color: map_get($colors, 'gray-light');
+  }
+}
+
+
+.container-left, .container-right {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.container-left {
+  flex-basis: 50%;
+  background-color: map_get($colors, 'blue');
+
+  &:after {
+    font-family: iconfont, sans-serif;
+    content: '\e820';
+    font-size: 120rem;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.1;
+    margin-left: 40%;
+    margin-top: 8rem;
+  }
+}
+
+.container-right {
+  flex-basis: 50%;
+
+  .user-inputs {
+    display: none;
+    margin-top: 2rem;
+
+    input[type='text'], input[type='password'] {
+      font-size: 1.2rem;
+      width: 14rem;
+      padding: 1.2rem;
+      margin: 0rem 1rem 0rem 0rem;
+      border: 0.1rem solid map_get($colors, 'light');
+
+
+    }
+  }
+
+  .forget-pwd {
+    margin-left: 18rem;
+    font-size: 1.0rem;
+    color: map_get($colors, 'gray');
+
+  }
+
+  .user-ops {
+    input[type='button'][class*="btn-sign-"] {
+      width: 20rem;
+      margin: 0.5rem 0;
+
+    }
+
+
+  }
+
+
+}
+
+
+@media screen and (min-width: 1024px) {
+  .container-right .user-inputs {
+    display: block;
+  }
+}

@@ -1,0 +1,27 @@
+@import "~src/styles/colors";
+
+.root {
+  background: map_get($colors, 'white');
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: thin solid map_get($colors, 'gray-light');
+}
+
+.toggle-list {
+  display: flex;
+
+  .toggle-item {
+    font-size: 1.6rem;
+    font-weight: bolder;
+    color: map_get($colors, 'blue');
+    padding: 1rem;
+    cursor: pointer;
+
+    &.selected {
+      color: map_get($colors, 'gray-dark');
+    }
+  }
+}

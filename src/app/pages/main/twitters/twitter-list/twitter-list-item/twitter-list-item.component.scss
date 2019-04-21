@@ -1,0 +1,84 @@
+@import "~src/styles/colors";
+
+.root {
+  background-color: map_get($colors, 'white');
+  border-bottom: thin solid map_get($colors, 'gray-light');
+  cursor: pointer;
+  &:hover {
+    background-color: map_get($colors, 'white-light');
+  }
+}
+
+
+.fm-img-circle {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.time-gone, .translate-it {
+  // fm-color-gray  fm-p-h-2 dot-before
+  color: map_get($colors, 'gray');
+  padding: 0 0.2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  position: relative;
+
+  &:hover {
+    color: map_get($colors, 'blue');
+    text-decoration: underline;
+  }
+}
+
+.time-gone:before {
+  content: '·';
+  position: absolute;
+  left: -0.5rem;
+  top: 0;
+  bottom: 0;
+  color: map_get($colors, 'gray');
+}
+
+.translate-it:before {
+  content: '\e8ce';
+  font-family: iconfont, sans-serif !important;
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  bottom: 0;
+  color: map_get($colors, 'gray');
+}
+
+.img-ref {
+  border-radius: 1.2rem;
+  box-shadow: 0 0 0.1rem map_get($colors, 'gray-light');
+  overflow: hidden;
+
+  > img {
+    width: 100%;
+  }
+
+}
+
+.opts {
+  display: flex;
+  flex-flow: row nowrap;
+
+  .opt {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    width: 6rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      color: map_get($colors, 'blue');
+    }
+
+    .iconfont {
+      padding-top: 0.1rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
